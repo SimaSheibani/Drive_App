@@ -4,12 +4,12 @@ import P1.Driver.Builder;
 
 public class Vehicle {
 
-  protected String make;
-  protected String model;
-  protected Integer year;
-  protected Name officialOwnerName;
-  protected InsuranceInfo insuranceInfo;
-  protected VehicleHistory vehicleHistory;
+  private String make;
+  private String model;
+  private Integer year;
+  private Name officialOwnerName;
+  private InsuranceInfo insuranceInfo;
+  private VehicleHistory vehicleHistory;
 
   public Vehicle(Builder builder) {
     this.make = builder.make;

@@ -7,11 +7,11 @@ import sun.util.resources.LocaleData;
 
 public class DriverHistory {
 
-  protected LocalDate date;
-  protected ViolationMoving violationMoving;
-  protected ViolationNonMoving violationNonMoving;
-  protected Map<ViolationMoving, LocalDate> movingViolationLocalDateMap;
-  protected Map<ViolationNonMoving, LocalDate> nonMovingViolationLocalDateMap;
+  private LocalDate date;
+  private ViolationMoving violationMoving;
+  private ViolationNonMoving violationNonMoving;
+  private Map<ViolationMoving, LocalDate> movingViolationLocalDateMap;
+  private Map<ViolationNonMoving, LocalDate> nonMovingViolationLocalDateMap;
 
   public DriverHistory(LocalDate date) {
     this.violationMoving = null;

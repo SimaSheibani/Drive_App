@@ -6,9 +6,9 @@ import java.util.List;
 
 public class InsuranceInfo {
 
-  protected Name name;
-  protected LocalDate expirationDate;
-  protected List<String> otherPeopleCovered;
+  private Name name;
+  private LocalDate expirationDate;
+  private List<String> otherPeopleCovered;
 
   public InsuranceInfo(Name name, LocalDate expirationDate) {
     this.name = name;

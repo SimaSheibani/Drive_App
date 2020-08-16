@@ -6,14 +6,14 @@ import java.util.Map;
 
 public class VehicleHistory {
 
-  protected Name nameOffendingDriver;
-  protected LocalDate date;
-  protected Crash crash;
-  protected ViolationMoving violationMoving;
-  protected ViolationNonMoving violationNonMoving;
-  protected Map<Crash, LocalDate> crashMap;
-  protected Map<ViolationMoving, LocalDate> violationMovingMap;
-  protected Map<ViolationNonMoving, LocalDate> violationNonMovingLocalDateMap;
+  private Name nameOffendingDriver;
+  private LocalDate date;
+  private Crash crash;
+  private ViolationMoving violationMoving;
+  private ViolationNonMoving violationNonMoving;
+  private Map<Crash, LocalDate> crashMap;
+  private Map<ViolationMoving, LocalDate> violationMovingMap;
+  private Map<ViolationNonMoving, LocalDate> violationNonMovingLocalDateMap;
 
   public VehicleHistory(Name nameOffendingDriver,
       LocalDate date) {

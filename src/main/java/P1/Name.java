@@ -2,8 +2,8 @@ package P1;
 
 public class Name {
 
-  protected String firstName;
-  protected String lastName;
+  private String firstName;
+  private String lastName;
 
   public Name(String firstName, String lastName) {
     this.firstName = firstName;

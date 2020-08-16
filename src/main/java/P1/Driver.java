@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Driver {
 
-  protected Name name;
-  protected LocalDate dateOfBirth;
-  protected LicenseInformation licenseInformation;
-  protected DriverHistory driverHistory;
-  protected List<Vehicle> listOfVehicle;
+  private Name name;
+  private LocalDate dateOfBirth;
+  private LicenseInformation licenseInformation;
+  private DriverHistory driverHistory;
+  private List<Vehicle> listOfVehicle;
 
   public Driver(Builder builder) {
     this.name = builder.name;
@@ -44,11 +44,11 @@ public class Driver {
 
   public static class Builder {
 
-    protected Name name;
-    protected LocalDate dateOfBirth;
-    protected LicenseInformation licenseInformation;
-    protected DriverHistory driverHistory;
-    protected List<Vehicle> listOfVehicles;
+    private Name name;
+    private LocalDate dateOfBirth;
+    private LicenseInformation licenseInformation;
+    private DriverHistory driverHistory;
+    private List<Vehicle> listOfVehicles;
 
     public Builder(Name name, LocalDate dateOfBirth,
         LicenseInformation licenseInformation) {

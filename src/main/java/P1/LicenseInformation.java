@@ -10,14 +10,14 @@ import java.util.Objects;
  */
 public class LicenseInformation {
 
-  protected Integer licenseUniqueNumber;
-  protected Name name;
-  protected String driverAddress;
-  protected LocalDate birthday;
-  protected String countryIssue;
-  protected String stateIssue;
-  protected LocalDate issueDate;
-  protected LocalDate expirationDate;
+  private Integer licenseUniqueNumber;
+  private Name name;
+  private String driverAddress;
+  private LocalDate birthday;
+  private String countryIssue;
+  private String stateIssue;
+  private LocalDate issueDate;
+  private LocalDate expirationDate;
 
   /**
    * A constructor make a new licenseInformation, based upon all of the provided input parameters.

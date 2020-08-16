@@ -6,11 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 public class ValidateInformation {
-
+  
   public static final int TWENTY_One_YEARS = 21;
   public static final int FIFTEEN_YEARS = 15;
   public static final long SIX_MONTH_IN_DAYS = 180;
-
 
   public boolean validationAgeDriver(LocalDate birthday) {
     long age = ChronoUnit.YEARS.between(birthday, LocalDate.now());
