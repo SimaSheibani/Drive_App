@@ -68,7 +68,7 @@ public class Driver {
   /**
    * addVehicle received the new vehicle and adding it to the list of vehicle if it wasn't in the
    * list of vehicle.
-   * @param newVehicle
+   * @param newVehicle the new vehicle is adding to the Vehicle list if it is not already!
    */
   public void addVehicle (Vehicle newVehicle) {
     if (this.getVehicles().contains(newVehicle)) {

@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Represent InsuranceInfo class. It contains name, License Unique number, expiration date of
+ * insurance, list of other people cover in this insurance
+ */
 public class InsuranceInfo {
 
   private Name name;
@@ -20,22 +24,42 @@ public class InsuranceInfo {
     this.otherPeopleCovered = builder.otherPeopleCovered;
   }
 
+  /**
+   * Return the name of insurance holder
+   * @return the name of insurance holder
+   */
   public Name getName() {
     return this.name;
   }
 
+  /**
+   * Return the the driver license number
+   * @return the the driver license number
+   */
   public String getDriverLicense() {
     return this.LicenseUniqueNumber;
   }
 
+  /**
+   * Return the list of other people in this driver insurance
+   * @return the list of other people in this driver insurance
+   */
   public List<Map<String, String>> getOtherPeopleCovered() {
     return otherPeopleCovered;
   }
 
+  /**
+   * Return the expiration date of insurance
+   * @return the expiration date of insurance
+   */
   public LocalDate getExpirationDate() {
     return this.expirationDate;
   }
 
+  /**
+   * This function set a list of other people cover with the insurance
+   * @param otherPeopleCovered - list of other people cover
+   */
   public void setOtherPeopleCovered(List<Map<String, String>> otherPeopleCovered) {
     this.otherPeopleCovered = otherPeopleCovered;
   }

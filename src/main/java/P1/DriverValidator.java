@@ -117,6 +117,12 @@ public class DriverValidator {
         return validateOfficialOwnerOfVehicle();
     }
 
+    /**
+     * Return true if the owner's name of vehicle and name of driver license is same or if not
+     * the name of driver license should be in the list of people covered in the vehicle's insurance
+     * @return true if the owner's name of vehicle and name of driver license is same or if not
+     * the name of driver license should be in the list of people covered in the vehicle's insurance
+     */
     private boolean validateOfficialOwnerOfVehicle() {
         if (!(this.driver.getLicenseInformation().getLicenseUniqueNumber().equals(this.vehicle.getDriverLicenseUniqueNumber()))) {
             boolean check = false;
@@ -132,6 +138,10 @@ public class DriverValidator {
         return validateInsuranceExpirationDate();
     }
 
+    /**
+     * Return true if the vehicle's insurance is not expired, and return false if it is expired
+     * @return true if the vehicle's insurance is not expired, and return false if it is expired
+     */
     private boolean validateInsuranceExpirationDate() {
         if (this.vehicle.getInsuranceInfo().getExpirationDate().compareTo(LocalDate.now()) < 0) {
             return false;
@@ -139,6 +149,12 @@ public class DriverValidator {
         return validateDriverViolations();
     }
 
+    /**
+     * return false if the driver have any moving violation (include: recklessDriver, speeding, DUI and
+     * driving without valid license insurance), else return true
+     * @return false if the driver have any moving violation (include: recklessDriver, speeding, DUI and
+     * driving without valid license insurance, else return true
+     */
     private boolean validateDriverViolations() {
 
         if (!this.driver.getDriverHistories().isEmpty()) {
@@ -159,6 +175,12 @@ public class DriverValidator {
         return validateVehicleHistory();
     }
 
+    /**
+     * Return false if vehicle has any crashes or moving violation in the last 6 months, else
+     * return true
+     * @return false if vehicle has any crashes or moving violation in the last 6 months, else
+     * return true
+     */
     private boolean validateVehicleHistory() {
         if (!this.vehicle.getVehicleHistories().isEmpty()) {
             for (VehicleHistory history : this.vehicle.getVehicleHistories()) {

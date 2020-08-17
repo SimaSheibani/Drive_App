@@ -20,7 +20,7 @@ public class LicenseInformation {
   private LocalDate expirationDate;
 
   /**
-   * A constructor make a new licenseInformation, based upon all of the provided input parameters.
+   * Make a new licenseInformation, based upon all of the provided input parameters.
    * @param licenseUniqueNumber - information about the a license unique number
    * @param name - driver's name
    * @param driverAddress - driver's address
@@ -45,34 +45,62 @@ public class LicenseInformation {
 
   /**
    * An String representing the alphanumeric unique license number.
-   * @return
+   * @return the license unique number
    */
   public String getLicenseUniqueNumber() {
     return licenseUniqueNumber;
   }
 
+  /**
+   * Return the name
+   * @return the name
+   */
   public Name getName() { return name;}
 
+  /**
+   * Return the driver address
+   * @return the driver address
+   */
   public String getDriverAddress() {
     return driverAddress;
   }
 
+  /**
+   * Return the birth date of driver
+   * @return the birth date of driver
+   */
   public LocalDate getBirthDate() {
     return birthDate;
   }
 
+  /**
+   * Return the country which license issued
+   * @return the country which license issued
+   */
   public String getCountryIssue() {
     return countryIssue;
   }
 
+  /**
+   * Return the state of license
+   * @return the state of license
+   */
   public String getStateIssue() {
     return stateIssue;
   }
 
+  /**
+   * Return the issue date of license
+   * @return the issue date of license
+   */
   public LocalDate getIssueDate() {
     return issueDate;
   }
 
+  /**
+   * Return the expiration date of license
+   * @return the expiration date of license
+   */
   public LocalDate getExpirationDate() {
     return expirationDate;
   }
