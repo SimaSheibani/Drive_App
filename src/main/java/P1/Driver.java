@@ -41,6 +41,13 @@ public class Driver {
     return driverHistories;
   }
 
+  public void addVehicle (Vehicle newVehicle) {
+    if (this.getVehicles().contains(newVehicle)) {
+      return;
+    }
+    this.getVehicles().add(newVehicle);
+  }
+
   public List<Vehicle> addVehicleToList(Vehicle vehicle) {
     this.vehicles.add(vehicle);
     return this.vehicles;

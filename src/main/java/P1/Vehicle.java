@@ -1,6 +1,7 @@
 package P1;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Vehicle {
 
@@ -76,4 +77,19 @@ public class Vehicle {
     return vehicleHistories;
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    Vehicle vehicle = (Vehicle) o;
+    return Objects.equals(make, vehicle.make) &&
+            Objects.equals(model, vehicle.model) &&
+            Objects.equals(year, vehicle.year) &&
+            Objects.equals(driverLicenseUniqueNumber, vehicle.driverLicenseUniqueNumber);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(make, model, year, driverLicenseUniqueNumber);
+  }
 }
