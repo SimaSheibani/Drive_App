@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Map;
 
+/**
+ * Represent the validator class. It contains application name, application birthday, driver and
+ * vehicle
+ */
 public class DriverValidator {
 
     public static final int TWENTY_ONE_YEARS_IN_MONTH = 252;
@@ -14,6 +18,13 @@ public class DriverValidator {
     private Driver driver;
     private Vehicle vehicle;
 
+    /**
+     * Create a new Driver validator, based upon all af the provided input parameter
+     * @param driver - driver information
+     * @param vehicle - vehicle information
+     * @param applicationName - the name in the application
+     * @param applicationBirthDate - the birthday in the application
+     */
     public DriverValidator(Driver driver, Vehicle vehicle, Name applicationName, LocalDate applicationBirthDate) {
         this.driver = driver;
         this.applicationName = applicationName;
@@ -21,11 +32,21 @@ public class DriverValidator {
         this.vehicle = vehicle;
     }
 
-
+    /**
+     * This method is using the chain of responsibilities, it check if the validateAge is true
+     * go to the other method and if it is false it doesn't check other methods!!
+     * @return true if the function validateAge is true, and false if it is not true.
+     */
     public boolean validateLicenseInformation() {
         return validateAge();
     }
 
+    /**
+     * Return true if the age is more than 21 years old, and return false if it is less than 21
+     * years old.
+     * @return true if the age is more than 21 years old, and return false if it is less than 21
+     * years old.
+     */
     private boolean validateAge() {
         if (Period.between(LocalDate.now(), this.driver.getDateOfBirth()).toTotalMonths() < TWENTY_ONE_YEARS_IN_MONTH) {
             return false;
@@ -33,6 +54,10 @@ public class DriverValidator {
         return validateName();
     }
 
+    /**
+     * Return true if the name of driver in License is the same as application
+     * @return true if the name of driver in License is the same as application
+     */
     private boolean validateName() {
         if (!this.applicationName.equals(this.driver.getLicenseInformation().getName().getFirstName())) {
             return false;
@@ -40,6 +65,10 @@ public class DriverValidator {
         return validateBirthDate();
     }
 
+    /**
+     * Return true if the dat of birth of driver in License is the same as application
+     * @return true if the dat of birth of driver in License is the same as application
+     */
     private boolean validateBirthDate() {
         if (this.applicationBirthDate.compareTo(this.driver.getLicenseInformation().getBirthDate()) != 0) {
             return false;
@@ -47,6 +76,10 @@ public class DriverValidator {
         return validateCountryOfIssuance();
     }
 
+    /**
+     * Return true if the dat of birth of driver in License is the same as application
+     * @return
+     */
     private boolean validateCountryOfIssuance() {
         if (!this.driver.getLicenseInformation().getCountryIssue().equals("US") &&
                 !(this.driver.getLicenseInformation().getCountryIssue().equals("Canada"))) {

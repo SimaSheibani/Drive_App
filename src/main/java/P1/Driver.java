@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
+/**
+ *  Represent a new Driver with the Name, date of birth, list of license information,
+ *  list of vehicles, and list of driver history
+ */
 public class Driver {
 
   private Name name;
@@ -21,36 +25,56 @@ public class Driver {
     this.driverHistories = builder.driverHistories;
   }
 
+  /**
+   * Return a Name
+   * @return a Name
+   */
   public Name getName() {
     return this.name;
   }
 
+  /**
+   * Return the date of birth
+   * @return the date of birth
+   */
   public LocalDate getDateOfBirth() {
     return this.dateOfBirth;
   }
 
+  /**
+   * Return the list of license information
+   * @return the list of license information
+   */
   public LicenseInformation getLicenseInformation() {
     return this.licenseInformation;
   }
 
+  /**
+   * Return the list of vehicles
+   * @return the list of vehicles
+   */
   public List<Vehicle> getVehicles() {
     return vehicles;
   }
 
+  /**
+   * Return the list of driver history
+   * @return the list of driver history
+   */
   public List<DriverHistory> getDriverHistories() {
     return driverHistories;
   }
 
+  /**
+   * addVehicle received the new vehicle and adding it to the list of vehicle if it wasn't in the
+   * list of vehicle.
+   * @param newVehicle
+   */
   public void addVehicle (Vehicle newVehicle) {
     if (this.getVehicles().contains(newVehicle)) {
       return;
     }
     this.getVehicles().add(newVehicle);
-  }
-
-  public List<Vehicle> addVehicleToList(Vehicle vehicle) {
-    this.vehicles.add(vehicle);
-    return this.vehicles;
   }
 
   public static class Builder {
