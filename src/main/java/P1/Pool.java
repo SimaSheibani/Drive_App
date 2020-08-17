@@ -43,9 +43,19 @@ public class Pool {
         for (Driver driver : this.drivers.values()) {
             if (driver.getName().getLastName().equals(lastName)) {
                 sb.append(driver.getName().getLastName()+", "+driver.getName().getFirstName()+" \n");
-
+                for (Vehicle v : driver.getVehicles()) {
+                    sb.append("\t" + v.getYear().toString() + " " + v.getColor() + " " + v.getMake() + " " + v.getModel() + ", " + v.getLicensePlate() + " \n");
+                }
+                if (!driver.getDriverHistories().isEmpty()) {
+                    for (DriverHistory history : driver.getDriverHistories()) {
+                        sb.append("\t \t \t" + history.getViolationMoving() != null ? history.getViolationMoving() : history.getViolationNonMoving());
+                    }
+                }
             }
         }
-        return "";
+        if (sb.length() == 0) {
+            sb.append("No registered driver found. \n");
+        }
+        return sb.toString();
     }
 }
