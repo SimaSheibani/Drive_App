@@ -33,9 +33,9 @@ public class DriverValidator {
     }
 
     /**
-     * This method is using the chain of responsibilities, it check if the validateAge is true
-     * go to the other method and if it is false it doesn't check other methods!!
-     * @return true if the function validateAge is true, and false if it is not true.
+     * This method is using the chain of responsibilities, it check if the driver can add to the
+     * pool of driver or not
+     * @return true if the driver is valid to add to the pool and return false other wise.
      */
     public boolean validateLicenseInformation() {
         return validateAge();
@@ -77,8 +77,8 @@ public class DriverValidator {
     }
 
     /**
-     * Return true if the dat of birth of driver in License is the same as application
-     * @return
+     * Return true if the country of driver license issued is US or Canada
+     * @return true if he country of driver license issued is US or Canada
      */
     private boolean validateCountryOfIssuance() {
         if (!this.driver.getLicenseInformation().getCountryIssue().equals("US") &&
@@ -88,6 +88,10 @@ public class DriverValidator {
         return validateDateOfIssuance();
     }
 
+    /**
+     * Return true if the driver license issued more than 6 months
+     * @return true if the driver license issued more than 6 months
+     */
     private boolean validateDateOfIssuance() {
         if (Period.between(LocalDate.now(), this.driver.getLicenseInformation().getIssueDate()).getDays() > SIX_MONTH_IN_DAYS) {
             return false;
@@ -95,13 +99,17 @@ public class DriverValidator {
         return validateExpirationDate();
     }
 
+
     private boolean validateExpirationDate() {
         if (this.driver.getLicenseInformation().getExpirationDate().compareTo(LocalDate.now()) < 0) {
             return false;
         }
         return validateVehicleAge();
     }
-
+    /**
+     * Return true if the age of vehicle is less than 15 years
+     * @return true if the age of vehicle is less than 15 years
+     */
     private boolean validateVehicleAge() {
         if (LocalDate.now().getYear() - this.vehicle.getYear() > FIFTEEN_YEARS) {
             return false;
