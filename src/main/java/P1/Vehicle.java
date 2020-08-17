@@ -1,6 +1,6 @@
 package P1;
 
-import P1.Driver.Builder;
+import java.util.List;
 
 public class Vehicle {
 
@@ -8,16 +8,48 @@ public class Vehicle {
   private String model;
   private Integer year;
   private Name officialOwnerName;
+  private String driverLicenseUniqueNumber;
   private InsuranceInfo insuranceInfo;
-  private VehicleHistory vehicleHistory;
+  private List<VehicleHistory> vehicleHistories = null;
 
-  public Vehicle(Builder builder) {
-    this.make = builder.make;
-    this.model = builder.model;
-    this.year = builder.year;
-    this.officialOwnerName = builder.officialOwnerName;
-    this.insuranceInfo = builder.insuranceInfo;
-    this.vehicleHistory = builder.vehicleHistory;
+
+  public Vehicle(
+          String make,
+          String model,
+          Integer year,
+          Name officialOwnerName,
+          String driverLicenseUniqueNumber,
+          InsuranceInfo insuranceInfo)
+  {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.officialOwnerName = officialOwnerName;
+    this.driverLicenseUniqueNumber = driverLicenseUniqueNumber;
+    this.insuranceInfo = insuranceInfo;
+  }
+
+  public Vehicle(
+          String make,
+          String model,
+          Integer year,
+          Name officialOwnerName,
+          String driverLicenseUniqueNumber,
+          InsuranceInfo insuranceInfo,
+          List<VehicleHistory> vehicleHistories)
+  {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.officialOwnerName = officialOwnerName;
+    this.driverLicenseUniqueNumber = driverLicenseUniqueNumber;
+    this.insuranceInfo = insuranceInfo;
+    this.vehicleHistories = vehicleHistories;
+  }
+
+
+  public String getDriverLicenseUniqueNumber() {
+    return driverLicenseUniqueNumber;
   }
 
   public String getMake() {
@@ -36,41 +68,12 @@ public class Vehicle {
     return officialOwnerName;
   }
 
-
   public InsuranceInfo getInsuranceInfo() {
     return insuranceInfo;
   }
 
-  public VehicleHistory getVehicleHistory() {
-    return vehicleHistory;
+  public List<VehicleHistory> getVehicleHistories() {
+    return vehicleHistories;
   }
-
-  public static class Builder {
-
-    private String make;
-    private String model;
-    private Integer year;
-    private Name officialOwnerName;
-    private InsuranceInfo insuranceInfo;
-    private VehicleHistory vehicleHistory;
-
-    public Builder(String make, String model, Integer year, Name officialOwnerName,
-        InsuranceInfo insuranceInfo) {
-      this.make = make;
-      this.model = model;
-      this.year = year;
-      this.officialOwnerName = officialOwnerName;
-    }
-
-    public Builder addVehicleHistory(VehicleHistory history) {
-      this.vehicleHistory = history;
-      return this;
-    }
-
-    public Vehicle build() {return new Vehicle(this);}
-
-  }
-
-
 
 }

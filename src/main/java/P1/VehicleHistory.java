@@ -7,61 +7,80 @@ import java.util.Map;
 public class VehicleHistory {
 
   private Name nameOffendingDriver;
+  private String driverLicenseInformation;
   private LocalDate date;
-  private Crash crash;
-  private ViolationMoving violationMoving;
-  private ViolationNonMoving violationNonMoving;
-  private Map<Crash, LocalDate> crashMap;
-  private Map<ViolationMoving, LocalDate> violationMovingMap;
-  private Map<ViolationNonMoving, LocalDate> violationNonMovingLocalDateMap;
+  private Crash crash = null;
+  private ViolationMoving violationMoving = null;
+  private ViolationNonMoving violationNonMoving = null;
 
-  public VehicleHistory(Name nameOffendingDriver,
-      LocalDate date) {
-    this.nameOffendingDriver = nameOffendingDriver;
-    this.date = date;
-    this.crash = null;
-    this.violationMoving = null;
-    this.violationNonMoving = null;
-    this.crashMap = new HashMap<>();
-    this.violationMovingMap = new HashMap<>();
-    this.violationNonMovingLocalDateMap = new HashMap<>();
+  private VehicleHistory(Builder builder) {
+    this.nameOffendingDriver = builder.nameOffendingDriver;
+    this.driverLicenseInformation = builder.driverLicenseInformation;
+    this.date = builder.date;
+    this.crash = builder.crash;
+    this.violationMoving = builder.violationMoving;
+    this.violationNonMoving = builder.violationNonMoving;
   }
 
   public Name getNameOffendingDriver() {
     return this.nameOffendingDriver;
   }
 
+  public String getDriverLicenseInformation() {
+    return this.driverLicenseInformation;
+  }
+
   public LocalDate getDate() {
-    return date;
+    return this.date;
   }
 
-  public void setCrash(Crash crash) {
-    this.crash = crash;
+  public Crash getCrash() {
+    return this.crash;
   }
 
-  public void setViolationMoving(ViolationMoving violationMoving) {
-    this.violationMoving = violationMoving;
+  public ViolationMoving getViolationMoving() {
+    return this.violationMoving;
   }
 
-  public void setViolationNonMoving(ViolationNonMoving violationNonMoving) {
-    this.violationNonMoving = violationNonMoving;
+  public ViolationNonMoving getViolationNonMoving() {
+    return this.violationNonMoving;
   }
 
-  public Map<ViolationMoving, LocalDate> addMovingViolation(ViolationMoving violation, LocalDate date) {
-    this.setViolationMoving(violation);
-    this.violationMovingMap.put(this.violationMoving, this.date);
-    return violationMovingMap;
-  }
-  public Map<ViolationNonMoving, LocalDate> addNonMovingViolation(
-      ViolationNonMoving violation, LocalDate date) {
-    this.setViolationNonMoving (violation);
-    this.violationNonMovingLocalDateMap.put(this.violationNonMoving, this.date);
-    return violationNonMovingLocalDateMap;
-  }
-  public Map<Crash, LocalDate> addCrashViolation(Crash crash, LocalDate date) {
-    this.setCrash(crash);
-    this.crashMap.put(this.crash, date);
-    return crashMap;
-  }
+  public static class Builder {
+    private Name nameOffendingDriver;
+    private String driverLicenseInformation;
+    private LocalDate date;
+    private Crash crash = null;
+    private ViolationMoving violationMoving = null;
+    private ViolationNonMoving violationNonMoving = null;
+    private static VehicleHistory instance = null;
 
+    public Builder (Name nameOffendingDriver, String driverLicenseInformation, LocalDate date) {
+      this.nameOffendingDriver = nameOffendingDriver;
+      this.driverLicenseInformation = driverLicenseInformation;
+      this.date = date;
+    }
+
+    public Builder addCrash(Crash crash) {
+      this.crash = crash;
+      return this;
+    }
+
+    public Builder addViolationMoving(ViolationMoving violationMoving) {
+      this.violationMoving = violationMoving;
+      return this;
+    }
+
+    public Builder addViolationNonMoving(ViolationNonMoving violationNonMoving) {
+      this.violationNonMoving = violationNonMoving;
+      return this;
+    }
+
+    public VehicleHistory build() {
+      if (this.instance == null) {
+        this.instance = new VehicleHistory(this);
+      }
+      return instance;
+    }
+  }
 }

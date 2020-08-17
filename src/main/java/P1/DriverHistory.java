@@ -1,55 +1,34 @@
 package P1;
 
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
-import sun.util.resources.LocaleData;
 
 public class DriverHistory {
 
   private LocalDate date;
-  private ViolationMoving violationMoving;
-  private ViolationNonMoving violationNonMoving;
-  private Map<ViolationMoving, LocalDate> movingViolationLocalDateMap;
-  private Map<ViolationNonMoving, LocalDate> nonMovingViolationLocalDateMap;
+  private ViolationMoving violationMoving = null;
+  private ViolationNonMoving violationNonMoving = null;
 
-  public DriverHistory(LocalDate date) {
-    this.violationMoving = null;
-    this.violationNonMoving = null;
-    this.movingViolationLocalDateMap = new HashMap<>();
-    this.nonMovingViolationLocalDateMap = new HashMap<>();
+  public DriverHistory(ViolationMoving violationMoving, LocalDate date) {
+    this.violationMoving = violationMoving;
+    this.date = date;
   }
 
-  public Map<ViolationMoving, LocalDate> addMovingViolation(ViolationMoving violation, LocalDate date) {
-    this.setViolationMoving(violation);
-    this.movingViolationLocalDateMap.put(this.violationMoving, this.date);
-    return movingViolationLocalDateMap;
-  }
-  public Map<ViolationNonMoving, LocalDate> addNonMovingViolation(
-      ViolationNonMoving violation, LocalDate date) {
-    this.setViolationNonMoving (violation);
-    this.nonMovingViolationLocalDateMap.put(this.violationNonMoving, this.date);
-    return nonMovingViolationLocalDateMap;
+  public DriverHistory(ViolationNonMoving violationNonMoving, LocalDate date) {
+    this.violationNonMoving = violationNonMoving;
+    this.date = date;
   }
 
   public LocalDate getDate() {
-    return date;
+    return this.date;
   }
 
   public ViolationMoving getViolationMoving() {
-    return violationMoving;
-  }
-
-  public void setViolationMoving(ViolationMoving violationMoving) {
-    this.violationMoving = violationMoving;
+    return this.violationMoving;
   }
 
   public ViolationNonMoving getViolationNonMoving() {
-    return violationNonMoving;
+    return this.violationNonMoving;
   }
 
-  public void setViolationNonMoving(ViolationNonMoving violationNonMoving) {
-    this.violationNonMoving = violationNonMoving;
-  }
 
 }

@@ -10,10 +10,10 @@ import java.util.Objects;
  */
 public class LicenseInformation {
 
-  private Integer licenseUniqueNumber;
+  private String licenseUniqueNumber;
   private Name name;
   private String driverAddress;
-  private LocalDate birthday;
+  private LocalDate birthDate;
   private String countryIssue;
   private String stateIssue;
   private LocalDate issueDate;
@@ -24,26 +24,30 @@ public class LicenseInformation {
    * @param licenseUniqueNumber - information about the a license unique number
    * @param name - driver's name
    * @param driverAddress - driver's address
-   * @param birthday - driver's birthday
+   * @param birthDate - driver's birthday
    * @param countryIssue - country issuance
    * @param stateIssue - state of issuance
    * @param issueDate - date of issue
    * @param expirationDate - expiration date
    */
-  public LicenseInformation(Integer licenseUniqueNumber, Name name,
-      String driverAddress, LocalDate birthday, String countryIssue,
-      String stateIssue, LocalDate issueDate, LocalDate expirationDate) {
+  public LicenseInformation(String licenseUniqueNumber, Name name,
+                            String driverAddress, LocalDate birthDate, String countryIssue,
+                            String stateIssue, LocalDate issueDate, LocalDate expirationDate) {
     this.licenseUniqueNumber = licenseUniqueNumber;
     this.name = name;
     this.driverAddress = driverAddress;
-    this.birthday = birthday;
+    this.birthDate = birthDate;
     this.countryIssue = countryIssue;
     this.stateIssue = stateIssue;
     this.issueDate = issueDate;
     this.expirationDate = expirationDate;
   }
 
-  public Integer getLicenseUniqueNumber() {
+  /**
+   * An String representing the alphanumeric unique license number.
+   * @return
+   */
+  public String getLicenseUniqueNumber() {
     return licenseUniqueNumber;
   }
 
@@ -53,8 +57,8 @@ public class LicenseInformation {
     return driverAddress;
   }
 
-  public LocalDate getBirthday() {
-    return birthday;
+  public LocalDate getBirthDate() {
+    return birthDate;
   }
 
   public String getCountryIssue() {
@@ -85,7 +89,7 @@ public class LicenseInformation {
     return Objects.equals(getLicenseUniqueNumber(), that.getLicenseUniqueNumber()) &&
         Objects.equals(getName(), that.getName())&&
         Objects.equals(getDriverAddress(), that.getDriverAddress()) &&
-        Objects.equals(getBirthday(), that.getBirthday()) &&
+        Objects.equals(getBirthDate(), that.getBirthDate()) &&
         Objects.equals(getCountryIssue(), that.getCountryIssue()) &&
         Objects.equals(getStateIssue(), that.getStateIssue()) &&
         Objects.equals(getIssueDate(), that.getIssueDate()) &&
@@ -97,7 +101,7 @@ public class LicenseInformation {
     return Objects
         .hash(getLicenseUniqueNumber(), getName(),
             getDriverAddress(),
-            getBirthday(), getCountryIssue(), getStateIssue(), getIssueDate(), getExpirationDate());
+            getBirthDate(), getCountryIssue(), getStateIssue(), getIssueDate(), getExpirationDate());
   }
 
   @Override
@@ -106,7 +110,7 @@ public class LicenseInformation {
         "licenseUniqueNumber=" + licenseUniqueNumber +
         ", driverFirstName='" + name + '\'' +
         ", driverAddress='" + driverAddress + '\'' +
-        ", birthday=" + birthday +
+        ", birthday=" + birthDate +
         ", countryIssue='" + countryIssue + '\'' +
         ", stateIssue='" + stateIssue + '\'' +
         ", issueDate=" + issueDate +
