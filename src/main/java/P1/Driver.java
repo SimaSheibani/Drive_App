@@ -48,11 +48,6 @@ public class Driver {
     this.getVehicles().add(newVehicle);
   }
 
-  public List<Vehicle> addVehicleToList(Vehicle vehicle) {
-    this.vehicles.add(vehicle);
-    return this.vehicles;
-  }
-
   public static class Builder {
 
     private Name name;

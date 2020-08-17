@@ -121,9 +121,11 @@ public class DriverValidator {
     private boolean validateVehicleHistory() {
         if (!this.vehicle.getVehicleHistories().isEmpty()) {
             for (VehicleHistory history : this.vehicle.getVehicleHistories()) {
-                if (history.getViolationMoving() != null) {
+                if (history.getViolationMoving() != null &&
+                        Period.between(LocalDate.now(), history.getDate()).getDays() < SIX_MONTH_IN_DAYS) {
                     return false;
-                } else if (history.getCrash() != null) {
+                } else if (history.getCrash() != null &&
+                        Period.between(LocalDate.now(), history.getDate()).getDays() < SIX_MONTH_IN_DAYS) {
                     return false;
                 }
             }

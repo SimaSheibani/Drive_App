@@ -8,6 +8,8 @@ public class Vehicle {
   private String make;
   private String model;
   private Integer year;
+  private String color;
+  private String licensePlate;
   private Name officialOwnerName;
   private String driverLicenseUniqueNumber;
   private InsuranceInfo insuranceInfo;
@@ -18,6 +20,8 @@ public class Vehicle {
           String make,
           String model,
           Integer year,
+          String licensePlate,
+          String color,
           Name officialOwnerName,
           String driverLicenseUniqueNumber,
           InsuranceInfo insuranceInfo)
@@ -25,6 +29,8 @@ public class Vehicle {
     this.make = make;
     this.model = model;
     this.year = year;
+    this.licensePlate = licensePlate;
+    this.color = color;
     this.officialOwnerName = officialOwnerName;
     this.driverLicenseUniqueNumber = driverLicenseUniqueNumber;
     this.insuranceInfo = insuranceInfo;
@@ -34,6 +40,8 @@ public class Vehicle {
           String make,
           String model,
           Integer year,
+          String licensePlate,
+          String color,
           Name officialOwnerName,
           String driverLicenseUniqueNumber,
           InsuranceInfo insuranceInfo,
@@ -42,6 +50,8 @@ public class Vehicle {
     this.make = make;
     this.model = model;
     this.year = year;
+    this.color = licensePlate;
+    this.color = color;
     this.officialOwnerName = officialOwnerName;
     this.driverLicenseUniqueNumber = driverLicenseUniqueNumber;
     this.insuranceInfo = insuranceInfo;
@@ -77,6 +87,14 @@ public class Vehicle {
     return vehicleHistories;
   }
 
+  public String getColor() {
+    return color;
+  }
+
+  public String getLicensePlate() {
+    return licensePlate;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -85,11 +103,12 @@ public class Vehicle {
     return Objects.equals(make, vehicle.make) &&
             Objects.equals(model, vehicle.model) &&
             Objects.equals(year, vehicle.year) &&
+            Objects.equals(color, vehicle.color) &&
             Objects.equals(driverLicenseUniqueNumber, vehicle.driverLicenseUniqueNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(make, model, year, driverLicenseUniqueNumber);
+    return Objects.hash(make, model, year, color, driverLicenseUniqueNumber);
   }
 }
